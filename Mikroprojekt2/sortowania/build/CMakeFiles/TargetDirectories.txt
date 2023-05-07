@@ -1,9 +1,0 @@
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/Experimental.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/Nightly.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/Continuous.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/NightlyMemoryCheck.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/sortowania.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/PACKAGE.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/RUN_TESTS.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/ALL_BUILD.dir
-E:/PiAA/Mikroprojekt2/sortowania/build/CMakeFiles/ZERO_CHECK.dir
