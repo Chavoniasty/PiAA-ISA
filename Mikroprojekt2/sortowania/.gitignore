@@ -3,3 +3,6 @@
 *.obj
 *.pdb
 *.vscode
+*.txt
+
+build

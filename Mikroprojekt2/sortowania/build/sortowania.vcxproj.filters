@@ -4,6 +4,18 @@
     <ClCompile Include="E:\PiAA\Mikroprojekt2\sortowania\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\PiAA\Mikroprojekt2\sortowania\Movie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\PiAA\Mikroprojekt2\sortowania\bucketsort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\PiAA\Mikroprojekt2\sortowania\mergesort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\PiAA\Mikroprojekt2\sortowania\quicksort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\PiAA\Mikroprojekt2\sortowania\CMakeLists.txt" />
