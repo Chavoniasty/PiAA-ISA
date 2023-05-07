@@ -1,0 +1,10 @@
+^E:\PIAA\MIKROPROJEKT2\SORTOWANIA\BUILD\CMAKEFILES\92DDEE387CEE4E6FE17740C07B496502\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/PiAA/Mikroprojekt2/sortowania -BE:/PiAA/Mikroprojekt2/sortowania/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/PiAA/Mikroprojekt2/sortowania/build/sortowania.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
