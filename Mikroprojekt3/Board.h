@@ -1,13 +1,11 @@
-
 #ifndef MIKROPROJEKT3_BOARD_H
 #define MIKROPROJEKT3_BOARD_H
 #include <iostream>
 
-
 class Board {
 public:
     int size;
-    char** fields;
+    char **fields;
 
     explicit Board(int tempSize);
     void displayBoard() const;
@@ -16,6 +14,5 @@ public:
     void noughtMove() const;
     void crossMove() const;
 };
-
 
 #endif
