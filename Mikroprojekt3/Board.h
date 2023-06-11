@@ -23,6 +23,8 @@ public:
     void crossMove();
 
     void crossMove(int rowNum, int colNum);
+
+    void noughtMove(int rowNum, int colNum);
 };
 
 #endif

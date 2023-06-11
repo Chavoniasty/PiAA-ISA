@@ -8,9 +8,9 @@ bool AI::isMoveLeft(Board &tempBoard) {
 
 int AI::calculate(Board &tempBoard) const {
     if (tempBoard.checkForWinner(AIsymbol)) {
-        return 10;
+        return 100;
     } else if (tempBoard.checkForWinner(playerSymbol)) {
-        return -10;
+        return -100;
     }
     return 0;
 }
@@ -18,7 +18,7 @@ int AI::calculate(Board &tempBoard) const {
 
 int AI::minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta) {
     int score = calculate(tempBoard);
-    if (score == 10 || score == -10) {
+    if (score == 100 || score == -100) {
         return score;
     }
     if (!isMoveLeft(tempBoard)) {
@@ -30,7 +30,8 @@ int AI::minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta) {
             for (int j = 0; j < tempBoard.size; j++) {
                 if (tempBoard.fields[i][j] == ' ') {
                     tempBoard.fields[i][j] = AIsymbol;
-                    best = std::max(best, minmax(tempBoard, depth + 1, false, alpha, beta));
+                    int temp = minmax(tempBoard, depth + 1, true, alpha, beta);
+                    best = std::max(best, temp);
                     tempBoard.fields[i][j] = ' ';
                     alpha = std::max(alpha, best);
                     if (alpha >= beta) {
@@ -46,7 +47,8 @@ int AI::minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta) {
             for (int j = 0; j < tempBoard.size; j++) {
                 if (tempBoard.fields[i][j] == ' ') {
                     tempBoard.fields[i][j] = playerSymbol;
-                    best = std::min(best, minmax(tempBoard, depth + 1, true, alpha, beta));
+                    int temp = minmax(tempBoard, depth + 1, true, alpha, beta);
+                    best = std::min(best, temp);
                     tempBoard.fields[i][j] = ' ';
                     beta = std::min(beta, best);
                     if (alpha >= beta) {
