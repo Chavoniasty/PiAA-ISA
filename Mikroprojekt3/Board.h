@@ -3,23 +3,27 @@
 
 #include <iostream>
 
+
 class Board {
 public:
     int size;
     char **fields;
     int pointsToWin;
+    int emptyFields;
 
-    explicit Board(int tempSize, int tempPoints);
+    Board(int tempSize, int tempPoints);
 
     void displayBoard() const;
 
-    void gameStart() const;
+    void gameStart();
 
-    [[nodiscard]] bool checkForWinner(char symbol) const;
+    bool checkForWinner(char symbol) const;
 
-    void noughtMove() const;
+    void noughtMove();
 
-    void crossMove() const;
+    void crossMove();
+
+    void crossMove(int rowNum, int colNum);
 };
 
 #endif

@@ -1,10 +1,16 @@
 #include <iostream>
 #include "Board.h"
+#include "AI.h"
+#include "GameWithAI.h"
+
 
 int main() {
     std::cout << "Insert board size: ";
     int boardSize;
     std::cin >> boardSize;
-    Board gameBoard(boardSize);
-    gameBoard.gameStart();
+    std::cout << "How many points player need to have for winning:";
+    int tempPoints;
+    std::cin >> tempPoints;
+    GameWithAI game = GameWithAI(boardSize, tempPoints);
+    game.startGameWithAI();
 }

@@ -1,5 +1,6 @@
 #include "Board.h"
 
+
 Board::Board(int tempSize, int tempPoints) {
     size = tempSize;
     fields = new char *[tempSize];
@@ -12,18 +13,19 @@ Board::Board(int tempSize, int tempPoints) {
         }
     }
     pointsToWin = tempPoints;
+    emptyFields = tempSize * tempSize;
 }
 
-void Board::gameStart() const {
+void Board::gameStart() {
     while (true) {
-        this->displayBoard();
-        this->noughtMove();
+        displayBoard();
+        noughtMove();
         if (checkForWinner('O')) {
             std::cout << "Naughts' won!";
             break;
         }
-        this->displayBoard();
-        this->crossMove();
+        displayBoard();
+        crossMove();
         if (checkForWinner('X')) {
             std::cout << "Crosses' won!";
             break;
@@ -42,7 +44,6 @@ void Board::displayBoard() const {
 }
 
 bool Board::checkForWinner(char symbol) const {
-    this->displayBoard();
     int counter = 0;
     // horizontal check
     for (int i = 0; i < size; i++) {
@@ -97,7 +98,7 @@ bool Board::checkForWinner(char symbol) const {
     return false;
 }
 
-void Board::noughtMove() const {
+void Board::noughtMove() {
     std::cout << "Insert row number:";
     int rowNum;
     std::cin >> rowNum;
@@ -109,9 +110,10 @@ void Board::noughtMove() const {
     if (fields[rowNum][colNum] == ' ') {
         fields[rowNum][colNum] = 'O';
     }
+    emptyFields--;
 }
 
-void Board::crossMove() const {
+void Board::crossMove() {
     std::cout << "Insert row number:";
     int rowNum;
     std::cin >> rowNum;
@@ -123,4 +125,12 @@ void Board::crossMove() const {
     if (fields[rowNum][colNum] == ' ') {
         fields[rowNum][colNum] = 'X';
     }
+    emptyFields--;
+}
+
+void Board::crossMove(int rowNum, int colNum) {
+    if (fields[rowNum][colNum] == ' ') {
+        fields[rowNum][colNum] = 'X';
+    }
+    emptyFields--;
 }
