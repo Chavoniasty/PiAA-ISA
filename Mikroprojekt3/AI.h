@@ -24,5 +24,4 @@ public:
     Move findBestMove(Board &tempBoard);
 };
 
-
 #endif

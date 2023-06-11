@@ -1,8 +1,5 @@
 #include <iostream>
-#include "Board.h"
-#include "AI.h"
 #include "GameWithAI.h"
-
 
 int main() {
     std::cout << "Insert board size: ";

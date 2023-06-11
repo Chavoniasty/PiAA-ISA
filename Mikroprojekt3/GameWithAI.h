@@ -16,5 +16,4 @@ private:
     Board gameBoard;
 };
 
-
 #endif //MIKROPROJEKT3_GAMEWITHAI_H

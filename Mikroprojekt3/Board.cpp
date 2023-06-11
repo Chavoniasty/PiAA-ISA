@@ -1,6 +1,5 @@
 #include "Board.h"
 
-
 Board::Board(int tempSize, int tempPoints) {
     size = tempSize;
     fields = new char *[tempSize];
@@ -47,6 +46,7 @@ bool Board::checkForWinner(char symbol) const {
     int counter = 0;
     // horizontal check
     for (int i = 0; i < size; i++) {
+        counter = 0;
         for (int j = 0; j < size; j++) {
             if (fields[i][j] == symbol) {
                 counter++;
@@ -60,6 +60,7 @@ bool Board::checkForWinner(char symbol) const {
     }
     // vertical check
     for (int i = 0; i < size; i++) {
+        counter = 0;
         for (int j = 0; j < size; j++) {
             if (fields[j][i] == symbol) {
                 counter++;
@@ -72,6 +73,7 @@ bool Board::checkForWinner(char symbol) const {
         }
     }
     // up left to down right check
+    counter = 0;
     for (int i = 0; i < size; i++) {
         if (fields[i][i] == symbol) {
             counter++;
@@ -83,6 +85,7 @@ bool Board::checkForWinner(char symbol) const {
         }
     }
     // up right to down left check
+    counter = 0;
     int j = size - 1;
     for (int i = 0; i < size; i++) {
         if (fields[i][j] == symbol) {
