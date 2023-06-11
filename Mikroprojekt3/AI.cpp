@@ -30,7 +30,7 @@ int AI::minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta) {
             for (int j = 0; j < tempBoard.size; j++) {
                 if (tempBoard.fields[i][j] == ' ') {
                     tempBoard.fields[i][j] = AIsymbol;
-                    best = std::max(best, minmax(tempBoard, depth - 1, !isMax, alpha, beta));
+                    best = std::max(best, minmax(tempBoard, depth + 1, false, alpha, beta));
                     tempBoard.fields[i][j] = ' ';
                     alpha = std::max(alpha, best);
                     if (alpha >= beta) {
@@ -46,7 +46,7 @@ int AI::minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta) {
             for (int j = 0; j < tempBoard.size; j++) {
                 if (tempBoard.fields[i][j] == ' ') {
                     tempBoard.fields[i][j] = playerSymbol;
-                    best = std::min(best, minmax(tempBoard, depth - 1, isMax, alpha, beta));
+                    best = std::min(best, minmax(tempBoard, depth + 1, true, alpha, beta));
                     tempBoard.fields[i][j] = ' ';
                     beta = std::min(beta, best);
                     if (alpha >= beta) {
@@ -59,7 +59,7 @@ int AI::minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta) {
     }
 }
 
-Move AI::findBestMove(Board &tempBoard) {
+void AI::findBestMove(Board &tempBoard) {
     int bestVal = -1000;
     Move bestMove{};
     bestMove.rowNum = -1;
@@ -68,7 +68,7 @@ Move AI::findBestMove(Board &tempBoard) {
         for (int j = 0; j < tempBoard.size; j++) {
             if (tempBoard.fields[i][j] == ' ') {
                 tempBoard.fields[i][j] = AIsymbol;
-                int moveVal = minmax(tempBoard, tempBoard.emptyFields, false, -1000, 1000);
+                int moveVal = minmax(tempBoard, 0, false, -1000, 1000);
                 tempBoard.fields[i][j] = ' ';
                 if (moveVal > bestVal) {
                     bestMove.rowNum = i;

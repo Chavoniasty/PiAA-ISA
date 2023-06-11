@@ -21,7 +21,7 @@ public:
 
     int minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta);
 
-    Move findBestMove(Board &tempBoard);
+    void findBestMove(Board &tempBoard);
 };
 
 #endif
