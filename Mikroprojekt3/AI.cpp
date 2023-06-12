@@ -8,7 +8,7 @@ bool AI::isMoveLeft(Board &tempBoard) {
 
 int AI::calculate(Board &tempBoard) const {
     if (tempBoard.checkForWinner(AIsymbol)) {
-        return 100;
+        return 3000;
     } else if (tempBoard.checkForWinner(playerSymbol)) {
         return -100;
     }
@@ -18,19 +18,22 @@ int AI::calculate(Board &tempBoard) const {
 
 int AI::minmax(Board &tempBoard, int depth, bool isMax, int alpha, int beta) {
     int score = calculate(tempBoard);
-    if (score == 100 || score == -100) {
-        return score;
+    if (score == 3000 || depth == 10) {
+        return score - depth;
+    }
+    if (score == -100 || depth == 10) {
+        return score + depth;
     }
     if (!isMoveLeft(tempBoard)) {
         return 0;
     }
     if (isMax) {
-        int best = -1000;
+        int best = 1000;
         for (int i = 0; i < tempBoard.size; i++) {
             for (int j = 0; j < tempBoard.size; j++) {
                 if (tempBoard.fields[i][j] == ' ') {
                     tempBoard.fields[i][j] = AIsymbol;
-                    int temp = minmax(tempBoard, depth + 1, true, alpha, beta);
+                    int temp = minmax(tempBoard, depth + 1, false, alpha, beta);
                     best = std::max(best, temp);
                     tempBoard.fields[i][j] = ' ';
                     alpha = std::max(alpha, best);
@@ -70,9 +73,10 @@ void AI::findBestMove(Board &tempBoard) {
         for (int j = 0; j < tempBoard.size; j++) {
             if (tempBoard.fields[i][j] == ' ') {
                 tempBoard.fields[i][j] = AIsymbol;
-                int moveVal = minmax(tempBoard, 0, false, -1000, 1000);
+                int moveVal = minmax(tempBoard, 0, false, -100, 100);
+                std::cout << "x: " << i + 1 << " ,y: " << j + 1 << " | POINTS: " << moveVal << std::endl;
                 tempBoard.fields[i][j] = ' ';
-                if (moveVal > bestVal) {
+                if (moveVal >= bestVal) {
                     bestMove.rowNum = i;
                     bestMove.colNum = j;
                     bestVal = moveVal;
